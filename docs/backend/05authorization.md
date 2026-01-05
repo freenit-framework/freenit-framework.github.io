@@ -100,24 +100,39 @@ overwrite is not needed.
 
 ## OpenLDAP
 
+First thing to do is to depend on `freenit[ldap,sql]`, so change the `pyproject.toml`.
+
 To use OpenLDAP based authentication, you need to tell Freenit where to find user and role, and
-how to connect to OpenLDAP server. To do that just for development, you can use the following
-snippet.
+how to connect to OpenLDAP server. To do that for the whole project, you can use the following
+snippet in `base_config.py`.
+
+```py
+from freenit.base_config import Auth, Mail, BaseConfig as FreenitBaseConfig
+from freenit.base_config import LDAP
+
+class BaseConfig(FreenitBaseConfig):
+    name = "NAME"
+    version = "0.0.1"
+    user = "freenit.models.ldap.user"
+    role = "freenit.models.ldap.role"
+
+```
+
+Then configure access to LDAP in `local_config.py`.
 
 ```py
 from .base_config import DevConfig as DevConfigBase
 from freenit.base_config import LDAP
 
 class DevConfig(DevConfigBase):
-    user = "freenit.models.ldap.user"
-    role = "freenit.models.ldap.role"
     ldap = LDAP(
         host="ldap.example.com",
         service_pw="mypass",
     )
 ```
 
-The `LDAP` class in Freenit has following arguments with their default arguments:
+Do that for `TestConfig` and `ProdConfig` with different credentials. The `LDAP` class in Freenit
+has following arguments with their default arguments:
 
 
 ```py
