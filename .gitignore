@@ -11,3 +11,4 @@ project.mk
 vars.mk
 
 site
+site/

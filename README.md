@@ -1,1 +1,33 @@
-# doc
+# Freenit documentation
+
+This repository is prepared for publishing on GitHub Pages with MkDocs.
+
+## Local development
+
+Install the MkDocs dependencies and run:
+
+```sh
+mkdocs serve
+```
+
+To validate the generated site locally:
+
+```sh
+mkdocs build --strict
+```
+
+## GitHub Pages deployment
+
+This repository is named `freenit-framework.github.io`, so it behaves like a GitHub user/organization Pages repository.
+
+The MkDocs deployment guide explains that user/organization Pages deployments with `mkdocs gh-deploy` are intended to publish into a dedicated Pages repository/branch separate from the source repository. Because this repository stores the MkDocs source on `master`, deploying the built site back into that same branch with `mkdocs gh-deploy` would be the wrong workflow here.
+
+Instead, publishing is handled by GitHub Actions in [`.github/workflows/pages.yml`](/home/meka/repos/freenit-framework.github.io/.github/workflows/pages.yml). On each push to `master`, the workflow:
+
+1. installs MkDocs and the required plugins,
+2. builds the site with `mkdocs build --strict`,
+3. deploys the generated `site/` output to GitHub Pages.
+
+## One-time GitHub configuration
+
+In the GitHub repository settings, set Pages to use `GitHub Actions` as the source.

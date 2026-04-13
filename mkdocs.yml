@@ -1,4 +1,7 @@
 site_name: Freenit
+site_url: https://freenit-framework.github.io/
+repo_url: https://github.com/freenit-framework/freenit-framework.github.io
+repo_name: freenit-framework/freenit-framework.github.io
 theme:
   name: material
   logo: img/logo.png
