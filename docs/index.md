@@ -1,9 +1,9 @@
 ---
-title: Freenit framework for Svelte and FastAPI development
+title: Freenit Framework
 description: Freenit is a web development framework that combines a visual designer, Svelte frontend tooling, FastAPI backend tooling, and reusable snippets to speed up product delivery.
 ---
 
-# Freenit framework for Svelte and FastAPI development
+# Freenit Framework
 
 Freenit is a framework for automating modern web application development. It combines three parts:
 
