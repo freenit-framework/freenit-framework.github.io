@@ -1,9 +1,13 @@
 site_name: Freenit
 site_url: https://freenit-framework.github.io/
+site_description: Freenit is a framework for designing, building, and documenting modern web applications with a visual designer, Svelte frontend tooling, and FastAPI backend tooling.
+site_author: Freenit Framework
 repo_url: https://github.com/freenit-framework/freenit-framework.github.io
 repo_name: freenit-framework/freenit-framework.github.io
 theme:
   name: material
+  language: en
+  custom_dir: docs/overrides
   logo: img/logo.png
   favicon: img/logo.png
 markdown_extensions:
@@ -15,3 +19,7 @@ markdown_extensions:
 plugins:
   - search
   - awesome-pages
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/freenit-framework

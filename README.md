@@ -31,3 +31,13 @@ Instead, publishing is handled by GitHub Actions in [`.github/workflows/pages.ym
 ## One-time GitHub configuration
 
 In the GitHub repository settings, set Pages to use `GitHub Actions` as the source.
+
+## SEO improvements
+
+The site now includes:
+
+1. stable canonical URLs derived from `site_url`,
+2. a global meta description with page-level overrides,
+3. Open Graph and Twitter card metadata,
+4. structured data for the site,
+5. a `robots.txt` file for crawling guidance.

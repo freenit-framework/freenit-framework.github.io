@@ -1,28 +1,19 @@
-# Intro
+---
+title: Freenit framework for Svelte and FastAPI development
+description: Freenit is a web development framework that combines a visual designer, Svelte frontend tooling, FastAPI backend tooling, and reusable snippets to speed up product delivery.
+---
 
-Freenit is framework made to automate all your WEB dev work. It is made of tree
-parts:
+# Freenit framework for Svelte and FastAPI development
 
-* Designer to speed up design and UI work
-* Frontend library based on Svelte
-* Backend library based on FastAPI
+Freenit is a framework for automating modern web application development. It combines three parts:
 
-The idea is to automate and integrate as much as possible and let you be just
-creative and concentrate on important stuff. Usual workflow is to use designer
-as drag and drop tool for UI and export it as code. While working on it, saving
-your work in `.json` format enables you to save it in git and easily "rewind"
-to the UI design at a certain point. When code is exported from such `.json`
-file, it is pixel-perfect UI, but still not perfect code. Running
-`npm run format` will help. You will still need to adjust the code to add
-integration with backend, but it is in the best shape generic code can be. Once
-you reshape the code to your liking, `data` variable in such code can serve as
-format of messages frontend expect from backend. The backend work is usually in
-two parts: DB models and API endpoints. In all of this code snippets will help
-you if you use VSCode or LunarVim (list of supported editors will expand over
-time).
+* A visual designer to speed up UI and design work
+* Frontend tooling based on Svelte
+* Backend tooling based on FastAPI
 
-All of this is just words. Dive into tutorial to see what Freenit is really
-about.
+The goal is to automate the repetitive parts of product development so you can focus on implementation details that matter. A common workflow is to build UI in the designer, save it as `.json`, version that file in git, and export the result as Svelte code. The exported code is intended to be pixel-accurate and easy to reshape for your application. After that, you can connect it to backend data models and API endpoints, with reusable snippets helping on both sides of the stack.
+
+This documentation explains the designer, frontend, backend, and snippet workflow in one place.
 
 
 ## Bootstrap the Project

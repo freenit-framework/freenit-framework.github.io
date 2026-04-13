@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  {% set meta_description = config.site_description %}
+  {% if page and page.meta and page.meta.description %}
+    {% set meta_description = page.meta.description %}
+  {% endif %}
+  {% set page_title = config.site_name %}
+  {% if page and page.title %}
+    {% set page_title = page.title ~ " - " ~ config.site_name %}
+  {% endif %}
+  {% set canonical_url = page.canonical_url if page and page.canonical_url else config.site_url %}
+  <meta name="description" content="{{ meta_description | e }}">
+  <meta name="author" content="{{ config.site_author | e }}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{ canonical_url | e }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page_title | e }}">
+  <meta property="og:description" content="{{ meta_description | e }}">
+  <meta property="og:url" content="{{ canonical_url | e }}">
+  <meta property="og:site_name" content="{{ config.site_name | e }}">
+  <meta property="og:image" content="{{ (config.site_url ~ 'img/logo.png') | e }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ page_title | e }}">
+  <meta name="twitter:description" content="{{ meta_description | e }}">
+  <meta name="theme-color" content="#1f6feb">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": {{ config.site_name | tojson }},
+      "url": {{ config.site_url | tojson }},
+      "description": {{ meta_description | tojson }},
+      "publisher": {
+        "@type": "Organization",
+        "name": {{ config.site_author | tojson }}
+      }
+    }
+  </script>
+{% endblock %}

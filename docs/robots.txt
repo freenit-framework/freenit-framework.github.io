@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://freenit-framework.github.io/sitemap.xml
