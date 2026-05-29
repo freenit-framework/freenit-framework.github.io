@@ -25,8 +25,10 @@ The MkDocs deployment guide explains that user/organization Pages deployments wi
 Instead, publishing is handled by GitHub Actions in [`.github/workflows/pages.yml`](/home/meka/repos/freenit-framework.github.io/.github/workflows/pages.yml). On each push to `master`, the workflow:
 
 1. installs MkDocs and the required plugins,
-2. builds the site with `mkdocs build --strict`,
-3. deploys the generated `site/` output to GitHub Pages.
+2. checks out and builds the `freenit-framework/designer` repository,
+3. builds the site with `mkdocs build --strict`,
+4. copies the designer static build into `site/design/`,
+5. deploys the generated `site/` output to GitHub Pages.
 
 ## One-time GitHub configuration
 
@@ -41,3 +43,5 @@ The site now includes:
 3. Open Graph and Twitter card metadata,
 4. structured data for the site,
 5. a `robots.txt` file for crawling guidance.
+
+Something
