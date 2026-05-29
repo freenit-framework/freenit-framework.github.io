@@ -3,8 +3,7 @@ name: Deploy MkDocs to GitHub Pages
 on:
   push:
     branches:
-      - master
-  workflow_dispatch:
+      - main
 
 permissions:
   contents: read
@@ -22,10 +21,44 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Check out Freenit source repository
+        uses: actions/checkout@v4
+        with:
+          repository: freenit-framework/devops
+          path: freenit
+
+      - name: Debug Freenit checkout
+        run: |
+          pwd
+          find . -maxdepth 3 -type d | sort
+          find freenit -maxdepth 3 -type d | sort || true
+
+      - name: Download Freenit service repositories
+        working-directory: freenit
+        run: ./bin/download_repos.sh
+
+      - name: Force designer branch
+        working-directory: freenit/services/designer
+        run: |
+          git checkout main
+          git pull --ff-only origin main
+
+      - name: Verify designer checkout
+        run: |
+          git -C freenit/services/designer branch --show-current
+          git -C freenit/services/designer log --oneline -n 3
+          find freenit/services -maxdepth 2 -type d | sort || true
+          test -d freenit/services/designer
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
 
       - name: Install documentation dependencies
         run: |
@@ -36,8 +69,37 @@ jobs:
             mkdocs-awesome-pages-plugin \
             pymdown-extensions
 
+      - name: Install designer dependencies
+        working-directory: freenit/services/designer
+        run: npm ci
+
+      - name: Generate designer components
+        working-directory: freenit/services/designer
+        run: OFFLINE=yes ./bin/components.sh
+
+      - name: Build designer
+        working-directory: freenit/services/designer
+        run: npm run build
+
       - name: Build site
         run: mkdocs build --strict
+
+      - name: Add designer to published site
+        run: |
+          echo "designer/build contents:"
+          find freenit/services/designer/build -maxdepth 2 -type f | sort || true
+
+          mkdir -p site/design
+          cp -R freenit/services/designer/build/. site/design/
+          touch site/.nojekyll
+
+          echo "site/design contents:"
+          find site/design -maxdepth 2 -type f | sort || true
+
+      - name: Verify published designer files
+        run: |
+          find site/design -maxdepth 2 -type f | sort
+          test -f site/design/index.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
