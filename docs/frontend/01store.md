@@ -122,7 +122,7 @@ store. So now in your `.svelte` component you would refer to it through global s
 ```ts
 import store from '$lib/store'
 
-console.log(store.blog.list.total)
+const total = store.blog.list.total
 ```
 
 ## Built-in Stores

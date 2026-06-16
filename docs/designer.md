@@ -11,5 +11,18 @@ using CSS variables. Icons are provided via `@mdi/js` library.
 To see designer in action please check out
 [Designer app](/design)
 
+## Claude Designer
+
+If you generate your page UI with Claude Designer, use the following prompt to
+export the page:
+
+```
+Export to single .html file that includes CSS and has zero JavaScript. Use only
+ChotCSS and break points for reponsive design should be:
+mobile: @media (max-width: 767px)
+tablet: @media (min-width: 768px) and (max-width: 1023px)
+desktop: @media (min-width: 1024px)
+```
+
 ## Source
 [Github](https://github.com/freenit-framework/designer)
