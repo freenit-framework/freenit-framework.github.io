@@ -8,7 +8,7 @@ The minimal code to add login page to your site
 
 ```ts
 <script lang="ts">
-  import { Login } from '@freenit-framework/core'
+  import { Login } from 'freenit'
   import store from '$lib/store'
 </script>
 
@@ -21,7 +21,7 @@ The minimal code to add user registration page to your site
 
 ```ts
 <script lang="ts">
-  import { Register } from '@freenit-framework/core'
+  import { Register } from 'freenit'
   import store from '$lib/store'
 </script>
 
@@ -36,7 +36,7 @@ file, hence the parameter `pk` in the code.
 
 ```ts
 <script lang="ts">
-  import { Role } from '@freenit-framework/core'
+  import { Role } from 'freenit'
   import store from '$lib/store'
 
   const { data } = $props()
@@ -64,7 +64,7 @@ The dashboard page for management of `Roles`.
 
 ```ts
 <script lang="ts">
-  import { Roles } from '@freenit-framework/core'
+  import { Roles } from 'freenit'
   import store from '$lib/store'
 </script>
 
@@ -78,7 +78,7 @@ that page is in `[name]/+page.svelte` file, hence the parameter `name` in the co
 
 ```ts
 <script lang="ts">
-  import { Theme } from '@freenit-framework/core'
+  import { Theme } from 'freenit'
   import store from '$lib/store'
 
   const { data } = $props()
@@ -93,7 +93,7 @@ The dashboard page for management of `Themes`.
 
 ```ts
 <script lang="ts">
-  import { Themes } from '@freenit-framework/core'
+  import { Themes } from 'freenit'
   import store from '$lib/store'
 </script>
 
@@ -107,7 +107,7 @@ page is in `[pk]/+page.svelte` file, hence the parameter `pk` in the code.
 
 ```ts
 <script lang="ts">
-  import { User } from '@freenit-framework/core'
+  import { User } from 'freenit'
   import store from '$lib/store'
 
   const { data } = $props()
@@ -122,7 +122,7 @@ The dashboard page for management of `Roles`.
 
 ```ts
 <script lang="ts">
-  import { Users } from '@freenit-framework/core'
+  import { Users } from 'freenit'
   import store from '$lib/store'
 </script>
 

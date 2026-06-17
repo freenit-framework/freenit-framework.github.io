@@ -5,7 +5,7 @@ Svelte has state and fetch built into it, so simplest store for blog CRUD would
 be to make file `src/lib/store/blog.svelte.ts`:
 
 ```ts
-import { methods } from '@freenit-framework/core'
+import { methods } from 'freenit'
 import store from '.'
 
 export default class BlogStore {
@@ -100,7 +100,7 @@ destroy = async (id: Number) => {
 Now all you need to do is initialize it with the rest of the store in `src/lib/store/index.ts`
 
 ```ts
-import { BaseStore } from '@freenit-framework/core'
+import { BaseStore } from 'freenit'
 import BlogStore from './blog.svelte'
 
 class Store extends BaseStore {
